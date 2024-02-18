@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madlibs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="content">
+        <img src="https://i5.walmartimages.com/seo/Mad-Libs-More-Best-of-Mad-Libs-World-s-Greatest-Word-Game-Paperback-9780843125498_3cb931d0-12aa-4a28-bab5-14233555d1f7.d79c6f37cb3e262f72b3970c06b1f8e1.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF"
+            alt="Mad Libs Cover" class="mad-libs-cover">
+
+        <form action="/story" method="POST">
+            {% for prompt in prompts %}
+            <label for="{{prompt}}">{{prompt}}:</label>
+            <input type="text" id="{{prompt}}" name="{{prompt}}" required>
+            <br>
+            {% endfor %}
+            <input type="submit" value="Submit">
+
+        </form>
+    </div>
+</body>
+
+</html>
